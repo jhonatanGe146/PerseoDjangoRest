@@ -1,0 +1,110 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Perseo</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/style_register_user.css' %}">
+
+</head>
+
+<body>
+
+    <section class="header">
+        <div class="flex">
+           <a href="{% url 'admins' %}" class="logo">Hotel Perseo</a>
+           <div class="icons">
+              <a href="../Clases/RegistroUsuario.html"><i class="uil uil-user" style="color: var(--green);"></i></a>
+           </div>
+  
+        </div>
+  
+        
+       
+  
+     </section>
+
+
+    <div class="signup">
+        <span class="title">Actualizar Usuario</span>
+
+        <form action="/admins/update_user/" method="POST"> {% csrf_token %}
+
+        
+
+            <div class="input-field">
+                <input type="text" name="Fnombre" value="{{documento.nombre}}" required>
+                <i class="uil uil-user"></i>
+            </div>
+
+            <div class="input-field">
+                <input type="text" name="Fapellido" value="{{documento.apellido}}" required>
+                <i class="uil uil-user"></i>
+            </div>
+            
+            <select class="input-select" name="FtipoDoc">
+                <option selected="selected" disabled="disabled">Seleccione Una Opción</option>
+                {% for tipoDocument in get_tipoDoc %}
+                    <option value="{{ tipoDocument.id }}" {% if tipoDocument.id == selected_tipoDoc %}selected="selected"{% endif %}>
+                        {{ tipoDocument.tipo_documento }}
+                    </option>
+                {% endfor %}
+            </select>
+            
+
+            <div class="input-field">
+                <input type="text" name="Fdocumento" value="{{documento.numero_documento}}" readonly required>
+                <i class="fa-solid fa-id-card"></i>
+            </div>
+
+            <div class="input-field">
+                <input type="text" name="Femail" value="{{documento.email}}" required>
+                <i class="uil uil-envelope icon"></i>
+              
+            </div>
+
+            <div class="input-field">
+                <input type="text" name="Ftelefono" value="{{documento.telefono}}" required>
+                <i class="fa-sharp fa-solid fa-phone"></i>
+            </div>
+
+            <select class="input-select" name="Fusuario">
+                <option selected="selected" disabled="disabled">Seleccione Una Opción</option>
+                {% for tipoUsua in get_tipoUsu %}
+                    <option value="{{ tipoUsua.id }}" {% if tipoUsua.id == selected_tipoRol %}selected="selected"{% endif %}>
+                        {{ tipoUsua.tipo_persona }}
+                    </option>
+                {% endfor %}
+            </select>
+
+                <div class="input-field">
+                <input type="password" name="Fcontrasena" class="password" value="{{documento.password}}" required>
+                <i class="uil uil-lock icon"></i>
+                <i class="uil uil-eye-slash showHidePw"></i>
+            </div>
+
+        
+            <div class="botones">
+                <div class="input-field button">
+                    <input type="submit" value="Actualizar">
+                </div>
+                <div class="input-field button">
+                        <a href="{% url 'admins' %}">Volver</a>
+                    </div>
+            </div>
+        </form>
+
+       
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Estado Habitacion</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/style_register_room.css' %}">
+</head>
+
+<body>
+        <section class="header">
+
+        <div class="flex">
+            <a href="{% url 'admins' %}" class="logo">Hotel Perseo</a>
+            <div class="icons">
+                <a href="logout.php"
+          ><i class="fa-solid fa-right-to-bracket" style="color: var(--green)"></i>
+        </a>
+            </div>
+
+        </div>
+
+        <nav class="navbar">
+            <a href="{% url 'admins' %}">Inicio</a>
+            <a href="../Clases/Servicios.html">Servicios</a>
+            <a href="Clases/Reservacion.html">Reservaciones</a>
+            <a href="#">Contáctanos</a>
+            <a href="../Clases/acercadenostros.html">Acerca de Nosotros</a>
+        </nav>
+
+        </section>
+
+        <div class="signup">
+            <span class="title">Actualizar Estado Habitación</span>
+            <form action="/admins/update_status/" method="POST"> {% csrf_token %}
+                            
+                <div class="input-field">
+                    <input type="text" name="Fid" class="hidden-input" value="{{estadoHab.id}}" readonly required>
+
+                </div>
+                
+                <div class="input-field">
+                    <input type="text" name="Festado" value="{{estadoHab.tipo_estado}}" required>
+
+                </div>
+
+                <div class="input-field">
+                    <input type="text" name="Fdescripcion" value="{{estadoHab.descripcion}}" required>
+                    
+                </div>
+                                               
+                <div class="botones">
+                    <div class="input-field button">
+                        <input type="submit" id="enviar" name="enviar" value="Actualizar">
+                    </div>
+                    <div class="input-field button">
+                        <a href="{% url 'admins'  %}">Volver</a>
+                    </div>
+                </div>
+
+                          
+            </form>
+
+        </div>
+</body>
+</html>
