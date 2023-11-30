@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'mod_user.apps.ModUserConfig',
     'mod_inventory.apps.ModInventoryConfig',
     'rest_framework',
-    'coreapi'
+    'coreapi',
+    'corsheaders'
 
 ]
 
@@ -53,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'hotelperseo.urls'
@@ -138,3 +140,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK={
     'DEFAULT_SCHEMA_CLASS':'rest_framework.schemas.coreapi.AutoSchema'
 }
+
+
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOWED_ORIGINS = [
+	'http://localhost:8000',
+]
+CORS_ALLOWED_ORIGIN_REGEXES = [
+	'http://localhost:8000',
+]
+
+CORS_ORIGINS_WHITELIST = [
+	'http://localhost:8000',
+]
