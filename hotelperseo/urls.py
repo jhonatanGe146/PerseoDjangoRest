@@ -22,9 +22,10 @@ from  django.conf import settings
 from rest_framework.documentation import include_docs_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path ('admins/', include('mod_room.urls'), name='mod_room'),
-    path('admins/', include('mod_user.urls'), name='mod_room'),
-    path ('admins/', include('mod_inventory.urls'), name = 'mod_inventory'),
+    path ('', include('mod_room.urls')),
+    path('', include('mod_user.urls')),
+    path ('', include('mod_inventory.urls')),
+    path ('', include('mod_invoice.urls')),
+    path ('', include('mod_reservation.urls')),
     path('docs/', include_docs_urls(title='Api Documentation'))
 ]+static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
