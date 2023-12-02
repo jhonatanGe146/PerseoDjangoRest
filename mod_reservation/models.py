@@ -8,7 +8,7 @@ class reserva(models.Model):
     precio_calculado= models.DecimalField(max_digits=10, decimal_places=2, null=False)
     cantidad_adultos = models.IntegerField()
     cantidad_ninos = models.IntegerField()
-    numero_documento = models.ForeignKey("app.Model", verbose_name=_(""), on_delete=models.CASCADE)
+      numero_documento = models.ForeignKey(Persona, on_delete=models.CASCADE)
   
     def __str__(self):
         return self.numero_documento
