@@ -1,7 +1,7 @@
 from django.db import models
 
-class Persona(models.Model):
-    numero_documento = models.CharField(max_length=10)
+class Huesped(models.Model):
+    numero_documento = models.CharField(max_length=10, primary_key=True)
     nombre = models.CharField(max_length=70)
     apellido = models.CharField(max_length=70)
     email = models.EmailField(unique=True)

@@ -16,10 +16,7 @@ class TipoHabitacionSerializer(serializers.ModelSerializer):
         model = tipo_habitacion
         fields = "__all__"
 
-class InventarioSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = inventario
-        fields = "__all__"
+
 
 class InventarioXHabitacionSerializer(serializers.ModelSerializer):
     class Meta:

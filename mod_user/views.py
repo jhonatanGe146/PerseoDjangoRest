@@ -1,4 +1,4 @@
-from mod_user.models import TipoDocumento, TipoPersona, Persona
+from .models import TipoDocumento, TipoPersona, Persona
 from rest_framework import viewsets
 from .serializer import UsuarioSerializer, TipoDocumentoSerializer, TipoUsuarioSerializer
 

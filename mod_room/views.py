@@ -1,6 +1,6 @@
-from .models import habitacion,estado_habitacion,tipo_habitacion,inventario, inventarioxhabitacion
+from .models import habitacion,estado_habitacion,tipo_habitacion, inventarioxhabitacion
 from rest_framework import viewsets
-from .serializer import HabitacionSerializer, EstadoHabitacionSerializer, TipoHabitacionSerializer, InventarioSerializer, InventarioXHabitacionSerializer
+from .serializer import HabitacionSerializer, EstadoHabitacionSerializer, TipoHabitacionSerializer,InventarioXHabitacionSerializer
 
 
 class HabitacionViewSet(viewsets.ModelViewSet):
@@ -15,10 +15,6 @@ class TipoHabitacionViewSet(viewsets.ModelViewSet):
 class EstadoHabitacionViewSet(viewsets.ModelViewSet):
     queryset = estado_habitacion.objects.all()
     serializer_class = EstadoHabitacionSerializer
-
-class InventarioViewSet(viewsets.ModelViewSet):
-    queryset = inventario.objects.all()
-    serializer_class = InventarioSerializer
 
 
 class InventarioXHabitacionViewSet(viewsets.ModelViewSet):

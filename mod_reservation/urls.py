@@ -3,9 +3,9 @@ from . import views
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'usuarios', views.UsuarioViewSet)
-router.register(r'tipousuario', views.TipoUsuarioViewSet)
-router.register(r'tipodoc', views.TipoDocumentoViewSet)
+router.register(r'reserva', views.ReservaViewSet)
+router.register(r'huexres', views.HuespedxReservaViewSet)
+router.register(r'habxres', views.HabitacionxReservaViewSet)
 
 
 urlpatterns = [

@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'mod_room.apps.ModRoomConfig',
     'mod_user.apps.ModUserConfig',
     'mod_invoice.apps.ModInvoiceConfig',
-    'mod_reservation.apps.ModReservationConfig'
+    'mod_reservation.apps.ModReservationConfig',
     'mod_inventory.apps.ModInventoryConfig',
+    'mod_guest.apps.ModGuestConfig',
     'rest_framework',
     'coreapi',
     'corsheaders'

@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from .models import Huesped
+from rest_framework import viewsets
+from .serializer import HuespedSerializer
 
-# Create your views here.
+class HuespedViewSet(viewsets.ModelViewSet):
+    queryset = Huesped.objects.all()
+    serializer_class = HuespedSerializer
+
+

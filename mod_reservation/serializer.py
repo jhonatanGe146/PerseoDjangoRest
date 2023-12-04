@@ -1,17 +1,17 @@
 from rest_framework import serializers
-from .models import Persona, TipoDocumento, TipoPersona
+from .models import Reserva,huespedxreserva,habitacionxreserva
 
-class UsuarioSerializer(serializers.ModelSerializer):
+class ReservaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Persona
+        model = Reserva
         fields = "__all__"
 
-class TipoUsuarioSerializer(serializers.ModelSerializer):
+class HuespedxReservaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = TipoPersona
+        model = huespedxreserva
         fields = "__all__"
 
-class TipoDocumentoSerializer(serializers.ModelSerializer):
+class HabitacionxReservaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = TipoDocumento
+        model = habitacionxreserva
         fields = "__all__"
