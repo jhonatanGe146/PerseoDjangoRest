@@ -22,6 +22,7 @@ from  django.conf import settings
 from rest_framework.documentation import include_docs_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path ('usuarios/', include('accounts.urls')),
     path ('guest/', include('mod_guest.urls')),
     path ('inventory/', include('mod_inventory.urls')),
     path ('invoice/', include('mod_invoice.urls')),

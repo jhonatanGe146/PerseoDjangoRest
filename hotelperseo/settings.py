@@ -45,9 +45,19 @@ INSTALLED_APPS = [
     'mod_guest.apps.ModGuestConfig',
     'rest_framework',
     'coreapi',
-    'corsheaders'
+    'corsheaders',
+    'accounts',
+    'rest_framework.authtoken'
 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
+AUTH_USER_MODEL = "accounts.Persona"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
